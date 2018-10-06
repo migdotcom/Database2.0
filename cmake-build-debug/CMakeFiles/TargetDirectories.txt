@@ -1,0 +1,3 @@
+C:/Users/Migue/Database2.0/cmake-build-debug/CMakeFiles/Database2_0.dir
+C:/Users/Migue/Database2.0/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Migue/Database2.0/cmake-build-debug/CMakeFiles/rebuild_cache.dir

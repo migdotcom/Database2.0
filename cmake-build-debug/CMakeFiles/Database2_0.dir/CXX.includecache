@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/Migue/Database2.0/ArgumentManager.h
+map
+-
+string
+-
+iostream
+-
+sstream
+-
+
+C:/Users/Migue/Database2.0/main.cpp
+iostream
+-
+fstream
+-
+string
+-
+sstream
+-
+iomanip
+-
+ArgumentManager.h
+C:/Users/Migue/Database2.0/ArgumentManager.h
+
