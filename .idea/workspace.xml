@@ -13,7 +13,7 @@
   <component name="ChangeListManager">
     <list default="true" id="03ed0ebe-3769-4d82-a174-0155b627fc38" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Database2_0.dir/main.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Database2_0.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Database2_0.dir/main.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Database2_0.dir/objects.a" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Database2_0.dir/objects.a" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/Database2_0.exe" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Database2_0.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/command11.txt" beforeDir="false" afterPath="$PROJECT_DIR$/command11.txt" afterDir="false" />
@@ -60,14 +60,14 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="cpp" value="7847" />
-          <entry key="txt" value="257" />
+          <entry key="cpp" value="8103" />
+          <entry key="txt" value="293" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="ObjectiveC" value="7847" />
-          <entry key="PLAIN_TEXT" value="257" />
+          <entry key="ObjectiveC" value="8103" />
+          <entry key="PLAIN_TEXT" value="293" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -76,32 +76,28 @@
           <entry key="cpp" value="1" />
           <entry key="h" value="2" />
           <entry key="iosfwd" value="1" />
-          <entry key="txt" value="14" />
+          <entry key="txt" value="18" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="Disassembly" value="2" />
           <entry key="ObjectiveC" value="4" />
-          <entry key="PLAIN_TEXT" value="14" />
+          <entry key="PLAIN_TEXT" value="18" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="190" column="39" selection-start-line="190" selection-start-column="33" selection-end-line="190" selection-end-column="39" />
+            <state relative-caret-position="193">
+              <caret line="192" column="67" selection-start-line="192" selection-start-column="67" selection-end-line="192" selection-end-column="67" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
                 <element signature="e#460#522#0" />
-                <element signature="e#527#1193#0" />
-                <element signature="e#1198#1542#0" />
-                <element signature="e#1547#2070#0" />
-                <element signature="e#2075#3006#0" />
                 <element signature="e#3012#3115#0" />
                 <element signature="e#3121#3460#0" />
                 <element signature="e#3466#4051#0" />
@@ -112,19 +108,42 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Database-2/hw3/command12.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/command11.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="11" selection-start-column="11" selection-end-column="11" />
+            <state relative-caret-position="34">
+              <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/input12.txt">
+        <entry file="file://$PROJECT_DIR$/Database-2/hw3/command13.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="37" selection-start-column="33" selection-end-column="37" />
+            <state relative-caret-position="34">
+              <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="10" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Database-2/hw3/command11.txt">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Database-2/hw3/output13.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -150,6 +169,9 @@
       <find>position</find>
       <find>string dob</find>
       <find>DOB</find>
+      <find>string DOB</find>
+      <find>add</find>
+      <find>times</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -161,8 +183,9 @@
         <option value="$PROJECT_DIR$/hw3/input12.txt" />
         <option value="$PROJECT_DIR$/hw3/command11.txt" />
         <option value="$PROJECT_DIR$/input12.txt" />
-        <option value="$PROJECT_DIR$/command11.txt" />
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/Database-2/hw3/command12.txt" />
+        <option value="$PROJECT_DIR$/command11.txt" />
       </list>
     </option>
   </component>
@@ -265,18 +288,18 @@
       <workItem from="1538624927322" duration="16746000" />
       <workItem from="1538778877945" duration="2982000" />
       <workItem from="1538784849965" duration="7989000" />
-      <workItem from="1538800095174" duration="10824000" />
+      <workItem from="1538800095174" duration="15067000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72325000" />
+    <option name="totallyTimeSpent" value="76568000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1295" height="695" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.17165992" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17165992" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -327,25 +350,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>155</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>273</line>
-          <option name="timeStamp" value="11" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>227</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="myfile" language="ObjectiveC" />
@@ -393,13 +397,6 @@
     <entry file="file://$PROJECT_DIR$/hw3/output11.txt" />
     <entry file="file://$PROJECT_DIR$/hw3/command13.txt" />
     <entry file="file://$PROJECT_DIR$/hw3/command12.txt" />
-    <entry file="file://$PROJECT_DIR$/input11.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/input12.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -407,29 +404,56 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/command11.txt">
+    <entry file="file://$PROJECT_DIR$/input11.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="11" selection-start-column="11" selection-end-column="11" />
+          <caret selection-end-column="36" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="190" column="39" selection-start-line="190" selection-start-column="33" selection-end-line="190" selection-end-column="39" />
+        <state relative-caret-position="193">
+          <caret line="192" column="67" selection-start-line="192" selection-start-column="67" selection-end-line="192" selection-end-column="67" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
             <element signature="e#460#522#0" />
-            <element signature="e#527#1193#0" />
-            <element signature="e#1198#1542#0" />
-            <element signature="e#1547#2070#0" />
-            <element signature="e#2075#3006#0" />
             <element signature="e#3012#3115#0" />
             <element signature="e#3121#3460#0" />
             <element signature="e#3466#4051#0" />
             <element signature="e#4057#4596#0" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database-2/hw3/command13.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database-2/hw3/command11.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database-2/hw3/output13.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Database-2/hw3/command12.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/command11.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
         </state>
       </provider>
     </entry>

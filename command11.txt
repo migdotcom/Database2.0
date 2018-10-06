@@ -1,1 +1,4 @@
-sort salary
+sort years worked
+add at end
+00002 Larry Page 10 11 1987 12 1 Memer
+delete 10005

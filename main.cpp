@@ -11,9 +11,11 @@ struct employee{
     std::string id;
     std::string first;
     std::string last;
-    std::string DOB;
-    std::string timeServed;
-    std::string salary;
+    int DOBMonth;
+    int DOBday;
+    int DOByear;
+    int timeServed;
+    int salary;
     std::string position;
     employee *next;
     employee(){next = nullptr;}
@@ -30,12 +32,14 @@ public:
         head = nullptr;
         tail = nullptr;
     }
-    void addEmployee(string newId,string newFirst,string newLast,string newDOB,string newTime, string newSalary,string newPosition) {
+    void addEmployee(string newId,string newFirst,string newLast,int MonthDOB,int DayDOB,int yearDOB,int newTime, int newSalary,string newPosition) {
         auto *temp = new employee;
         temp->id = std::move(newId);
         temp->first = std::move(newFirst);
         temp->last = std::move(newLast);
-        temp->DOB = std::move(newDOB);
+        temp->DOBMonth = std::move(MonthDOB);
+        temp->DOBday = std::move(DayDOB);
+        temp->DOByear = std::move(yearDOB);
         temp->timeServed = std::move(newTime);
         temp->salary = std::move(newSalary);
         temp->position = std::move(newPosition);
@@ -53,23 +57,25 @@ public:
         string line;
         employee *start = head;
             while(start!= nullptr){
-                cout << start->id << " "<< start->first << " "<<start->last << " "<< start->DOB <<" "<< start->timeServed << " "<< start->salary << " "<< start->position << " "<< endl;
+                cout << start->id << " "<< start->first << " "<<start->last << " "<< start->DOBMonth << " "<<start->DOBday<<" " << start->DOByear
+                <<" " << start->timeServed << " "<< start->salary << " "<< start->position << " "<< endl;
                 start=start->next;
             }
     }
-    void insert_at_start(string newId,string newFirst,string newLast,string newDOB ,string newTime, string newSalary,string newPosition){
+    void insert_at_start(string newId,string newFirst,string newLast,int MonthDOB,int DayDOB,int yearDOB,int newTime, int newSalary,string newPosition){
         auto *temp = new employee;
         temp->id = std::move(newId);
         temp->first = std::move(newFirst);
         temp->last = std::move(newLast);
-        temp->DOB = std::move(newDOB);
+        temp->DOBday = std::move(DayDOB);
+        temp->DOByear = std::move(yearDOB);
         temp->timeServed = std::move(newTime);
         temp->salary = std::move(newSalary);
         temp->position = std::move(newPosition);
         temp->next = head;
         head = temp;
     }
-    void insertInPosition(string newId,string newFirst,string newLast,string newDOB,string newTime, string newSalary,string newPosition, int pos){
+    void insertInPosition(string newId,string newFirst,string newLast,int MonthDOB,int DayDOB,int yearDOB,int newTime,int newSalary,string newPosition, int pos){
         employee *temp= new employee;
         employee *current;
         employee *previous= new employee;
@@ -78,7 +84,8 @@ public:
         temp->id =std::move(newId);
         temp->first = std::move(newFirst);
         temp->last = std::move(newLast);
-        temp->DOB = std::move(newDOB);
+        temp->DOBday = std::move(DayDOB);
+        temp->DOByear = std::move(yearDOB);
         temp->timeServed = std::move(newTime);
         temp->salary = std::move(newSalary);
         temp->position = std::move(newPosition);
@@ -183,21 +190,19 @@ public:
                 }
                 if (line2.find("add") != string::npos) {
                     if (line2.find("at beginning")) {
-                        while (getline(myfile, line2) && isdigit(0)) {
+                        while (getline(myfile, line2) && isdigit(line2[0])) {
                             stringstream ss(line2);
                             std::string id;
                             std::string first;
                             std::string last;
-                            std::string DOBMonth;
-                            std::string DOBDay;
-                            std::string DOBYear;
-                            std::string timeServed;
-                            std::string salary;
+                            int DOBMonth;
+                            int DOBDay;
+                            int DOBYear;
+                            int timeServed;
+                            int salary;
                             std::string position;
-                            std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
                             ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary >> position;
-//                            std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
-                            insertInPosition(id, first, last, DOB, timeServed, salary, position, 0);
+                            insertInPosition(id, first, last, DOBMonth,DOBDay, DOBYear, timeServed, salary, position, 0);
 
                         }
                     } else if (line2.find("at end")) {
@@ -206,16 +211,16 @@ public:
                             std::string id;
                             std::string first;
                             std::string last;
-                            std::string DOBMonth;
-                            std::string DOBDay;
-                            std::string DOBYear;
-                            std::string timeServed;
-                            std::string salary;
+                            int DOBMonth;
+                            int DOBDay;
+                            int DOBYear;
+                            int timeServed;
+                            int salary;
                             std::string position;
                             ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary
                                >> position;
-                            std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
-                            addEmployee(id, first, last, DOB, timeServed, salary, position);
+
+                            addEmployee(id, first, last, DOBMonth, DOBDay, DOBYear , timeServed, salary, position);
                         }
 
                     }
@@ -238,16 +243,14 @@ public:
                     std::string id;
                     std::string first;
                     std::string last;
-                    std::string DOBMonth;
-                    std::string DOBDay;
-                    std::string DOBYear;
-                    std::string timeServed;
-                    std::string salary;
+                    int DOBMonth;
+                    int DOBDay;
+                    int DOBYear;
+                    int timeServed;
+                    int salary;
                     std::string position;
                     ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary >> position;
-                    std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
-//                    std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
-                    addEmployee(id, first, last, DOB, timeServed, salary, position);
+                    addEmployee(id, first, last, DOBMonth, DOBDay, DOBYear , timeServed, salary, position);
 
             }
         }else{
@@ -265,7 +268,9 @@ public:
                     swap(i->id,j->id);
                     swap(i->first,j->first);
                     swap(i->last,j->last);
-                    swap(i->DOB,j->DOB);
+                    swap(i->DOBMonth,j->DOBMonth);
+                    swap(i->DOBday,j->DOBday);
+                    swap(i->DOByear,j->DOByear);
                     swap(i->timeServed,j->timeServed);
                     swap(i->salary, j->salary);
                     swap(i->position, j->position);
@@ -282,7 +287,9 @@ public:
                     swap(i->id,j->id);
                     swap(i->first,j->first);
                     swap(i->last,j->last);
-                    swap(i->DOB,j->DOB);
+                    swap(i->DOBMonth,j->DOBMonth);
+                    swap(i->DOBday,j->DOBday);
+                    swap(i->DOByear,j->DOByear);
                     swap(i->timeServed,j->timeServed);
                     swap(i->salary, j->salary);
                     swap(i->position, j->position);
@@ -299,7 +306,9 @@ public:
                     swap(i->id,j->id);
                     swap(i->first,j->first);
                     swap(i->last,j->last);
-                    swap(i->DOB,j->DOB);
+                    swap(i->DOBMonth, j->DOBMonth);
+                    swap(i->DOBday, j->DOBday);
+                    swap(i->DOByear, j->DOByear);
                     swap(i->timeServed,j->timeServed);
                     swap(i->salary, j->salary);
                     swap(i->position, j->position);
@@ -310,16 +319,43 @@ public:
     void DOB_BBsort() { // bubble sort that uses compare to the switch positions
         employee *i, *j;
 
-        for(i=head; i !=nullptr; i=i->next){
-            for (j=i->next; j!=nullptr ; j=j->next){
-                if( i->DOB > j->DOB) {
-                    swap(i->id,j->id);
-                    swap(i->first,j->first);
-                    swap(i->last,j->last);
-                    swap(i->DOB,j->DOB);
-                    swap(i->timeServed,j->timeServed);
+        for(i=head; i !=nullptr; i=i->next) {
+            for (j = i->next; j != nullptr; j = j->next) {
+                if (i->DOByear > j->DOByear) {
+                    swap(i->id, j->id);
+                    swap(i->first, j->first);
+                    swap(i->last, j->last);
+                    swap(i->DOBMonth, j->DOBMonth);
+                    swap(i->DOBday, j->DOBday);
+                    swap(i->DOByear, j->DOByear);
+                    swap(i->timeServed, j->timeServed);
                     swap(i->salary, j->salary);
                     swap(i->position, j->position);
+                } else if (i->DOByear == j->DOByear) {
+                    if (i->DOBMonth > j->DOBMonth) {
+                        swap(i->id, j->id);
+                        swap(i->first, j->first);
+                        swap(i->last, j->last);
+                        swap(i->DOBMonth, j->DOBMonth);
+                        swap(i->DOBday, j->DOBday);
+                        swap(i->DOByear, j->DOByear);
+                        swap(i->timeServed, j->timeServed);
+                        swap(i->salary, j->salary);
+                        swap(i->position, j->position);
+                    }
+
+                } else if (i->DOBday == j->DOBday) {
+                    if (i->DOBday > j->DOBday) {
+                        swap(i->id, j->id);
+                        swap(i->first, j->first);
+                        swap(i->last, j->last);
+                        swap(i->DOBMonth, j->DOBMonth);
+                        swap(i->DOBday, j->DOBday);
+                        swap(i->DOByear, j->DOByear);
+                        swap(i->timeServed, j->timeServed);
+                        swap(i->salary, j->salary);
+                        swap(i->position, j->position);
+                    }
                 }
             }
         }
@@ -332,7 +368,9 @@ public:
                     swap(i->id,j->id);
                     swap(i->first,j->first);
                     swap(i->last,j->last);
-                    swap(i->DOB,j->DOB);
+                    swap(i->DOBMonth,j->DOBMonth);
+                    swap(i->DOBday,j->DOBday);
+                    swap(i->DOByear,j->DOByear);
                     swap(i->timeServed,j->timeServed);
                     swap(i->salary, j->salary);
                     swap(i->position, j->position);
@@ -344,11 +382,14 @@ public:
         employee *i, *j;
         for(i=head; i !=nullptr; i=i->next){
             for (j=i->next; j!=nullptr ; j=j->next){
-                if( i->salary.compare( j->salary) > 0) {
+                if( i->salary >  j->salary) {
+
+
                     swap(i->id,j->id);
                     swap(i->first,j->first);
-                    swap(i->last,j->last);
-                    swap(i->DOB,j->DOB);
+                    swap(i->DOBMonth,j->DOBMonth);
+                    swap(i->DOBday,j->DOBday);
+                    swap(i->DOByear,j->DOByear);
                     swap(i->timeServed,j->timeServed);
                     swap(i->salary, j->salary);
                     swap(i->position, j->position);
@@ -364,7 +405,9 @@ public:
                     swap(i->id,j->id);
                     swap(i->first,j->first);
                     swap(i->last,j->last);
-                    swap(i->DOB,j->DOB);
+                    swap(i->DOBMonth,j->DOBMonth);
+                    swap(i->DOBday,j->DOBday);
+                    swap(i->DOByear,j->DOByear);
                     swap(i->timeServed,j->timeServed);
                     swap(i->salary, j->salary);
                     swap(i->position, j->position);
@@ -395,16 +438,7 @@ int main(int argc, char* argv[])
     mylist.readCommand(path);
     cout << " \n NO sort \n"<<endl;
     mylist.display();
-    cout << " \n last  sort \n"<<endl;
-    mylist.last_BBsort();
-    mylist.display();;
-    cout << "  \n id sort \n"<<endl;
-    mylist.idBBsort();
-    mylist.display();
-    cout << "  \n salary in function sort \n"<<endl;
-    mylist.salary_BBsort();
-    mylist.display();;
-    cout << "  \n salary in file  sort \n"<<endl;
+    cout << "  \n file  sort \n"<<endl;
     mylist.readCommand(path);
     mylist.display();
 
