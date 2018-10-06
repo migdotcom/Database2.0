@@ -1,1 +1,1 @@
-sort position
+sort salary

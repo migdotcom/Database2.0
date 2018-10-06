@@ -155,37 +155,35 @@ public:
     }
     void readCommand( string &path){ // reads the command lines and sorts accordingly
         string line2;
-        ifstream myfile2( path );
-        if (myfile2.good()) {
-            while (myfile2 >> line2) {
+        ifstream myfile( path );
+        if (myfile.good()) {
+            while (getline(myfile, line2)){
                 if (line2.find("sort") != string::npos) {
-                    cout << " something inside line find sort" << endl;
-
-                    if (line2.find("id")) {
-                        BBsort("id");
+                    if (line2.find("id") != string::npos) {
+                        idBBsort();
                     }
-                    if (line2.find("first")) {
-                        BBsort("first");
+                    if (line2.find("first") != string::npos) {
+                        first_BBsort();
                     }
-                    if (line2.find("last")) {
-                        BBsort("last");
+                    if (line2.find("last") != string::npos) {
+                        last_BBsort();
                     }
-                    if (line2.find("DOB")) {
-                        BBsort("DOB");
+                    if (line2.find("DOB") != string::npos) {
+                        DOB_BBsort();
                     }
-                    if (line2.find("salary")) {
-                        BBsort("salary");
+                    if (line2.find("salary") != string::npos) {
+                        salary_BBsort();
                     }
-                    if (line2.find("years")) {
-                        BBsort("timeServed");
+                    if (line2.find("years") != string::npos) {
+                        years_BBsort();
                     }
-                    if (line2.find("position")) {
-                        BBsort("position");
-                    }
+                    if (line2.find("position") != string::npos) {
+                        position_BBsort();
+                   }
                 }
                 if (line2.find("add") != string::npos) {
                     if (line2.find("at beginning")) {
-                        while (getline(myfile2, line2) && isdigit(line2[0])) {
+                        while (getline(myfile, line2) && isdigit(0)) {
                             stringstream ss(line2);
                             std::string id;
                             std::string first;
@@ -196,14 +194,14 @@ public:
                             std::string timeServed;
                             std::string salary;
                             std::string position;
-                            ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary
-                               >> position;
                             std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
+                            ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary >> position;
+//                            std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
                             insertInPosition(id, first, last, DOB, timeServed, salary, position, 0);
 
                         }
                     } else if (line2.find("at end")) {
-                        while (getline(myfile2, line2) && isdigit(line2[0])) {
+                        while (getline(myfile, line2) && isdigit(line2[0])) {
                             stringstream ss(line2);
                             std::string id;
                             std::string first;
@@ -248,6 +246,7 @@ public:
                     std::string position;
                     ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary >> position;
                     std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
+//                    std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
                     addEmployee(id, first, last, DOB, timeServed, salary, position);
 
             }
@@ -257,11 +256,79 @@ public:
         }
 
     }
-    void BBsort(const string &instructions){ // bubble sort that uses compare to the switch positions
+    void idBBsort(){ // bubble sort that uses compare to the switch positions
+        employee *i, *j;
+
+        for(i=head; i !=nullptr; i=i->next){
+            for (j=i->next; j!=nullptr ; j=j->next){
+                if(i->id > j->id) {
+                    swap(i->id,j->id);
+                    swap(i->first,j->first);
+                    swap(i->last,j->last);
+                    swap(i->DOB,j->DOB);
+                    swap(i->timeServed,j->timeServed);
+                    swap(i->salary, j->salary);
+                    swap(i->position, j->position);
+                }
+            }
+        }
+    }
+    void first_BBsort() { // bubble sort that uses compare to the switch positions
+        employee *i, *j;
+
+        for(i=head; i !=nullptr; i=i->next){
+            for (j=i->next; j!=nullptr ; j=j->next){
+                if( i->first > j->first) {
+                    swap(i->id,j->id);
+                    swap(i->first,j->first);
+                    swap(i->last,j->last);
+                    swap(i->DOB,j->DOB);
+                    swap(i->timeServed,j->timeServed);
+                    swap(i->salary, j->salary);
+                    swap(i->position, j->position);
+                }
+            }
+        }
+    }
+    void last_BBsort() { // bubble sort that uses compare to the switch positions
+        employee *i, *j;
+
+        for(i=head; i !=nullptr; i=i->next){
+            for (j=i->next; j!=nullptr ; j=j->next){
+                if( i->last > j->last) {
+                    swap(i->id,j->id);
+                    swap(i->first,j->first);
+                    swap(i->last,j->last);
+                    swap(i->DOB,j->DOB);
+                    swap(i->timeServed,j->timeServed);
+                    swap(i->salary, j->salary);
+                    swap(i->position, j->position);
+                }
+            }
+        }
+    }
+    void DOB_BBsort() { // bubble sort that uses compare to the switch positions
+        employee *i, *j;
+
+        for(i=head; i !=nullptr; i=i->next){
+            for (j=i->next; j!=nullptr ; j=j->next){
+                if( i->DOB > j->DOB) {
+                    swap(i->id,j->id);
+                    swap(i->first,j->first);
+                    swap(i->last,j->last);
+                    swap(i->DOB,j->DOB);
+                    swap(i->timeServed,j->timeServed);
+                    swap(i->salary, j->salary);
+                    swap(i->position, j->position);
+                }
+            }
+        }
+    }
+    void years_BBsort() { // bubble sort that uses compare to the switch positions
         employee *i, *j;
         for(i=head; i !=nullptr; i=i->next){
             for (j=i->next; j!=nullptr ; j=j->next){
-                if( instructions == "position" && i->position.compare(j->position) > 0){
+                if( i->timeServed > j->timeServed) {
                     swap(i->id,j->id);
                     swap(i->first,j->first);
                     swap(i->last,j->last);
@@ -270,8 +337,14 @@ public:
                     swap(i->salary, j->salary);
                     swap(i->position, j->position);
                 }
-                if( instructions == "id" &&  i->id >j->id){
-                    cout << "sorted id" << endl;
+            }
+        }
+    }
+    void salary_BBsort(){ // bubble sort that uses compare to the switch positions
+        employee *i, *j;
+        for(i=head; i !=nullptr; i=i->next){
+            for (j=i->next; j!=nullptr ; j=j->next){
+                if( i->salary.compare( j->salary) > 0) {
                     swap(i->id,j->id);
                     swap(i->first,j->first);
                     swap(i->last,j->last);
@@ -280,35 +353,14 @@ public:
                     swap(i->salary, j->salary);
                     swap(i->position, j->position);
                 }
-                if( instructions == "years" && i->timeServed.compare(j->timeServed) > 0){
-                    swap(i->id,j->id);
-                    swap(i->first,j->first);
-                    swap(i->last,j->last);
-                    swap(i->DOB,j->DOB);
-                    swap(i->timeServed,j->timeServed);
-                    swap(i->salary, j->salary);
-                    swap(i->position, j->position);
-                }
-                if( instructions == "first" && i->first.compare(j->first) > 0){
-
-                    swap(i->id,j->id);
-                    swap(i->first,j->first);
-                    swap(i->last,j->last);
-                    swap(i->DOB,j->DOB);
-                    swap(i->timeServed,j->timeServed);
-                    swap(i->salary, j->salary);
-                    swap(i->position, j->position);
-                }
-                if( instructions == "last" && i->last.compare(j->last) > 0){
-                    swap(i->id,j->id);
-                    swap(i->first,j->first);
-                    swap(i->last,j->last);
-                    swap(i->DOB,j->DOB);
-                    swap(i->timeServed,j->timeServed);
-                    swap(i->salary, j->salary);
-                    swap(i->position, j->position);
-                }
-                if( instructions == "salary" && i->salary.compare(j->salary) > 0){
+            }
+        }
+    }
+    void position_BBsort(){ // bubble sort that uses compare to the switch positions
+        employee *i, *j;
+        for(i=head; i !=nullptr; i=i->next){
+            for (j=i->next; j!=nullptr ; j=j->next){
+                if( i->position > j->position) {
                     swap(i->id,j->id);
                     swap(i->first,j->first);
                     swap(i->last,j->last);
@@ -341,8 +393,21 @@ int main(int argc, char* argv[])
     mylist.build(infilename);
 //    commandfilename
     mylist.readCommand(path);
-//    mylist.BBsort("position");
+    cout << " \n NO sort \n"<<endl;
     mylist.display();
+    cout << " \n last  sort \n"<<endl;
+    mylist.last_BBsort();
+    mylist.display();;
+    cout << "  \n id sort \n"<<endl;
+    mylist.idBBsort();
+    mylist.display();
+    cout << "  \n salary in function sort \n"<<endl;
+    mylist.salary_BBsort();
+    mylist.display();;
+    cout << "  \n salary in file  sort \n"<<endl;
+    mylist.readCommand(path);
+    mylist.display();
+
 
     return 0;
 };
