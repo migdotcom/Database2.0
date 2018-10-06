@@ -158,7 +158,7 @@ public:
         ifstream mySortFile(line);
         if (!mySortFile.empty()){
             while ( getline (mySortFile,line)) {
-                cout <<" something to commit" << endl;
+                cout <<" something to commit 2" << endl;
                 if (line.find("sort") != string::npos){
                     if(line.find("id")){
                         BBsort("id");
