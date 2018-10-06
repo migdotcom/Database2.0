@@ -157,8 +157,10 @@ public:
         string line2;
         ifstream myfile2( path );
         if (myfile2.good()) {
-            while (getline(myfile2, line2).good()) { ;
+            while (myfile2 >> line2) {
                 if (line2.find("sort") != string::npos) {
+                    cout << " something inside line find sort" << endl;
+
                     if (line2.find("id")) {
                         BBsort("id");
                     }
@@ -217,8 +219,8 @@ public:
                             std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
                             addEmployee(id, first, last, DOB, timeServed, salary, position);
                         }
-                    }
 
+                    }
                 }
             }
         }else{
