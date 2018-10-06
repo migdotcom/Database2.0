@@ -153,13 +153,17 @@ public:
 
         }
     }
-    void readCommand(const string &mySortFile){ // reads the command lines and sorts accordingly
+    void readCommand(const string &commandfilename){ // reads the command lines and sorts accordingly
         string line;
-        ifstream mySortFile(line);
-        if (!mySortFile.empty()){
-            while ( getline (mySortFile,line)) {
-                cout <<" something to commit 2" << endl;
+        ifstream myfile(commandfilename);
+        if (myfile.good()){
+            cout <<" something inside the if mysort line" << endl;
+
+            while (getline( myfile, line ).good()){
+                  cout <<" something inside the good line" << endl;
                 if (line.find("sort") != string::npos){
+                    cout <<" something inside line find sort" << endl;
+
                     if(line.find("id")){
                         BBsort("id");
                     }
@@ -184,7 +188,7 @@ public:
                 }
                 if(line.find("add") != string::npos) {
                     if (line.find("at beginning")) {
-                        while (getline(mySortFile, line) && isdigit(line[0])) {
+                        while (getline(myfile, line) && isdigit(line[0])) {
                             stringstream ss(line);
                             std::string id;
                             std::string first;
@@ -202,7 +206,7 @@ public:
 
                         }
                     } else if (line.find("at end")) {
-                        while (getline(mySortFile, line) && isdigit(line[0])) {
+                        while (getline(myfile, line) && isdigit(line[0])) {
                             stringstream ss(line);
                             std::string id;
                             std::string first;
@@ -222,29 +226,38 @@ public:
 
             }
 
+        }else{
+            cout <<"This is the else for the mysortfile" << endl;
         }
 
     }
-    void build(const string file_name) { // reads and stores from a txt file
+    void build(const string &infilename) { // reads and stores from a txt file
         string line;
-        ifstream myfile(file_name.c_str());
-            while (getline(myfile, line))
+        ifstream myfile( infilename );
+        if (myfile.good())
+        {
+           while (getline( myfile, line ).good())
             {
-                stringstream ss(line);
-                std::string id;
-                std::string first;
-                std::string last;
-                std::string DOBMonth;
-                std::string DOBDay;
-                std::string DOBYear;
-                std::string timeServed;
-                std::string salary;
-                std::string position;
-                ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary >> position;
-                std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
-                addEmployee(id, first, last, DOB, timeServed, salary, position);
+
+                    stringstream ss(line);
+                    std::string id;
+                    std::string first;
+                    std::string last;
+                    std::string DOBMonth;
+                    std::string DOBDay;
+                    std::string DOBYear;
+                    std::string timeServed;
+                    std::string salary;
+                    std::string position;
+                    ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary >> position;
+                    std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
+                    addEmployee(id, first, last, DOB, timeServed, salary, position);
 
             }
+        }else{
+            cout << "Experiment Failed" << endl;
+
+        }
 
     }
     void BBsort(const string &instructions){ // bubble sort that uses compare to the switch positions
@@ -321,11 +334,14 @@ int main(int argc, char* argv[])
     std::string infilename = am.get("input");
     std::string commandfilename = am.get("command");
     std::string outfilename = am.get("output");
-    std::cout << "File name for input: " << infilename << std::endl
-            << "File name for command: " << infilename << std::endl
-              << "File name for output: " << outfilename << std::endl;
+//    std::cout << "File name for input: " << infilename << std::endl
+//              << "File name for command: " << infilename << std::endl
+//              << "File name for output: " << outfilename << std::endl;
+
+
 
     mylist.build(infilename);
+//    commandfilename
     mylist.readCommand(commandfilename);
     mylist.display();
 
