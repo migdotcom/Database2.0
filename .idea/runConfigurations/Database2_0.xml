@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="Database2.0" type="CMakeRunConfiguration" factoryName="Application" singleton="true" PROGRAM_PARAMS="input=input12.txt output=output11.txt command=command11.txt" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Database2_0" TARGET_NAME="Database2_0" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Database2_0" RUN_TARGET_NAME="Database2_0">
+  <configuration default="false" name="Database2.0" type="CMakeRunConfiguration" factoryName="Application" singleton="true" PROGRAM_PARAMS="input=input11.txt output=output11.txt command=command11.txt" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="Database2_0" TARGET_NAME="Database2_0" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="Database2_0" RUN_TARGET_NAME="Database2_0">
     <method v="2">
       <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
     </method>

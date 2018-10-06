@@ -53,7 +53,7 @@ public:
             tail = temp;
         }
     }
-    void display(){
+    void printList(){
         string line;
         employee *start = head;
             while(start!= nullptr){
@@ -164,72 +164,90 @@ public:
         string line2;
         ifstream myfile( path );
         if (myfile.good()) {
-            while (getline(myfile, line2)){
+            while (getline(myfile, line2)) {
                 if (line2.find("sort") != string::npos) {
                     if (line2.find("id") != string::npos) {
                         idBBsort();
+                        printList();
+                        cout << "\n" << endl;
                     }
                     if (line2.find("first") != string::npos) {
                         first_BBsort();
+                        printList();
+                        cout << "\n" << endl;
                     }
                     if (line2.find("last") != string::npos) {
                         last_BBsort();
+                        printList();
+                        cout << "\n" << endl;
                     }
                     if (line2.find("DOB") != string::npos) {
                         DOB_BBsort();
+                        printList();
+                        cout << "\n" << endl;
                     }
                     if (line2.find("salary") != string::npos) {
                         salary_BBsort();
+                        printList();
+                        cout << "\n" << endl;
                     }
                     if (line2.find("years") != string::npos) {
                         years_BBsort();
+                        printList();
+                        cout << "\n" << endl;
                     }
                     if (line2.find("position") != string::npos) {
                         position_BBsort();
-                   }
-                }
-                if (line2.find("add") != string::npos) {
-                    if (line2.find("at beginning")) {
-                        while (getline(myfile, line2) && isdigit(line2[0])) {
-                            stringstream ss(line2);
-                            std::string id;
-                            std::string first;
-                            std::string last;
-                            int DOBMonth;
-                            int DOBDay;
-                            int DOBYear;
-                            int timeServed;
-                            int salary;
-                            std::string position;
-                            ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary >> position;
-                            insertInPosition(id, first, last, DOBMonth,DOBDay, DOBYear, timeServed, salary, position, 0);
-
-                        }
-                    } else if (line2.find("at end")) {
-                        while (getline(myfile, line2) && isdigit(line2[0])) {
-                            stringstream ss(line2);
-                            std::string id;
-                            std::string first;
-                            std::string last;
-                            int DOBMonth;
-                            int DOBDay;
-                            int DOBYear;
-                            int timeServed;
-                            int salary;
-                            std::string position;
-                            ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary
-                               >> position;
-
-                            addEmployee(id, first, last, DOBMonth, DOBDay, DOBYear , timeServed, salary, position);
-                        }
-
+                        printList();
+                        cout << "\n" << endl;
                     }
                 }
+                if (line2.find("add at end") != string::npos) {
+                    while (getline(myfile, line2) && isdigit(line2[0])) {
+                        stringstream ss(line2);
+                        std::string id;
+                        std::string first;
+                        std::string last;
+                        int DOBMonth;
+                        int DOBDay;
+                        int DOBYear;
+                        int timeServed;
+                        int salary;
+                        std::string position;
+                        ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary >> position;
+                        addEmployee(id, first, last, DOBMonth, DOBDay, DOBYear, timeServed, salary, position);
+                        printList();
+                        cout << "\n" << endl;
+                    }
+                }
+                if (line2.find("add at beginning") != string::npos) {
+                    while (getline(myfile, line2) && isdigit(line2[0])) {
+                        stringstream ss(line2);
+                        std::string id;
+                        std::string first;
+                        std::string last;
+                        int DOBMonth;
+                        int DOBDay;
+                        int DOBYear;
+                        int timeServed;
+                        int salary;
+                        std::string position;
+                        ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary
+                           >> position;
+                        insertInPosition(id, first, last, DOBMonth, DOBDay, DOBYear, timeServed, salary, position, 0);
+                        printList();
+                        cout << "\n" << endl;
+                    }
+                }
+                if (line2.find("delete") != string::npos && isdigit(line2[7])) {
+                            std::string del = line2.substr (7,5);
+                        delByInput(del);
+                        cout << "\n" << endl;
+                    }
             }
         }else{
             cout <<"This is the else for the mysortfile" << endl;
         }
-
     }
     void build(const string &infilename) { // reads and stores from a txt file
         string line;
@@ -238,7 +256,6 @@ public:
         {
            while (getline( myfile, line ).good())
             {
-
                     stringstream ss(line);
                     std::string id;
                     std::string first;
@@ -277,6 +294,8 @@ public:
                 }
             }
         }
+        printList();
+        cout <<"\n"<<endl;
     }
     void first_BBsort() { // bubble sort that uses compare to the switch positions
         employee *i, *j;
@@ -296,6 +315,8 @@ public:
                 }
             }
         }
+        printList();
+        cout <<"\n"<<endl;
     }
     void last_BBsort() { // bubble sort that uses compare to the switch positions
         employee *i, *j;
@@ -315,6 +336,8 @@ public:
                 }
             }
         }
+        printList();
+        cout <<"\n"<<endl;
     }
     void DOB_BBsort() { // bubble sort that uses compare to the switch positions
         employee *i, *j;
@@ -359,6 +382,8 @@ public:
                 }
             }
         }
+        printList();
+        cout <<"\n"<<endl;
     }
     void years_BBsort() { // bubble sort that uses compare to the switch positions
         employee *i, *j;
@@ -377,14 +402,14 @@ public:
                 }
             }
         }
+        printList();
+        cout <<"\n"<<endl;
     }
     void salary_BBsort(){ // bubble sort that uses compare to the switch positions
         employee *i, *j;
         for(i=head; i !=nullptr; i=i->next){
             for (j=i->next; j!=nullptr ; j=j->next){
                 if( i->salary >  j->salary) {
-
-
                     swap(i->id,j->id);
                     swap(i->first,j->first);
                     swap(i->DOBMonth,j->DOBMonth);
@@ -396,6 +421,8 @@ public:
                 }
             }
         }
+        printList();
+        cout <<"\n"<<endl;
     }
     void position_BBsort(){ // bubble sort that uses compare to the switch positions
         employee *i, *j;
@@ -414,6 +441,8 @@ public:
                 }
             }
         }
+        printList();
+        cout <<"\n"<<endl;
     }
 
 };
@@ -432,15 +461,14 @@ int main(int argc, char* argv[])
 //              << "File name for output: " << outfilename << std::endl;
 
 
-
+//
     mylist.build(infilename);
-//    commandfilename
     mylist.readCommand(path);
-    cout << " \n NO sort \n"<<endl;
-    mylist.display();
-    cout << "  \n file  sort \n"<<endl;
-    mylist.readCommand(path);
-    mylist.display();
+    mylist.printList();
+    cout << "\n"<<endl;
+
+
+
 
 
     return 0;
