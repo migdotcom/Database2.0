@@ -153,43 +153,38 @@ public:
 
         }
     }
-    void readCommand(const string &commandfilename){ // reads the command lines and sorts accordingly
-        string line;
-        ifstream myfile(commandfilename);
-        if (myfile.good()){
-            cout <<" something inside the if mysort line" << endl;
-
-            while (getline( myfile, line ).good()){
-                  cout <<" something inside the good line" << endl;
-                if (line.find("sort") != string::npos){
-                    cout <<" something inside line find sort" << endl;
-
-                    if(line.find("id")){
+    void readCommand( string &path){ // reads the command lines and sorts accordingly
+        string line2;
+        ifstream myfile2( path );
+        if (myfile2.good()) {
+            while (getline(myfile2, line2).good()) { ;
+                if (line2.find("sort") != string::npos) {
+                    if (line2.find("id")) {
                         BBsort("id");
                     }
-                    if(line.find("first")){
+                    if (line2.find("first")) {
                         BBsort("first");
                     }
-                    if(line.find("last")){
+                    if (line2.find("last")) {
                         BBsort("last");
                     }
-                    if(line.find("DOB")){
+                    if (line2.find("DOB")) {
                         BBsort("DOB");
                     }
-                    if(line.find("salary")){
+                    if (line2.find("salary")) {
                         BBsort("salary");
                     }
-                    if(line.find("years")){
+                    if (line2.find("years")) {
                         BBsort("timeServed");
                     }
-                    if(line.find("position")){
+                    if (line2.find("position")) {
                         BBsort("position");
                     }
                 }
-                if(line.find("add") != string::npos) {
-                    if (line.find("at beginning")) {
-                        while (getline(myfile, line) && isdigit(line[0])) {
-                            stringstream ss(line);
+                if (line2.find("add") != string::npos) {
+                    if (line2.find("at beginning")) {
+                        while (getline(myfile2, line2) && isdigit(line2[0])) {
+                            stringstream ss(line2);
                             std::string id;
                             std::string first;
                             std::string last;
@@ -205,9 +200,9 @@ public:
                             insertInPosition(id, first, last, DOB, timeServed, salary, position, 0);
 
                         }
-                    } else if (line.find("at end")) {
-                        while (getline(myfile, line) && isdigit(line[0])) {
-                            stringstream ss(line);
+                    } else if (line2.find("at end")) {
+                        while (getline(myfile2, line2) && isdigit(line2[0])) {
+                            stringstream ss(line2);
                             std::string id;
                             std::string first;
                             std::string last;
@@ -217,15 +212,15 @@ public:
                             std::string timeServed;
                             std::string salary;
                             std::string position;
-                            ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary >> position;
+                            ss >> id >> first >> last >> DOBMonth >> DOBDay >> DOBYear >> timeServed >> salary
+                               >> position;
                             std::string DOB = DOBMonth + " " + DOBDay + " " + DOBYear;
                             addEmployee(id, first, last, DOB, timeServed, salary, position);
                         }
                     }
+
                 }
-
             }
-
         }else{
             cout <<"This is the else for the mysortfile" << endl;
         }
@@ -330,6 +325,7 @@ public:
 int main(int argc, char* argv[])
 {
     list mylist;
+    string path= "C:\\Users\\Migue\\Database2.0\\command11.txt";
     ArgumentManager am(argc, argv);
     std::string infilename = am.get("input");
     std::string commandfilename = am.get("command");
@@ -342,7 +338,8 @@ int main(int argc, char* argv[])
 
     mylist.build(infilename);
 //    commandfilename
-    mylist.readCommand(commandfilename);
+    mylist.readCommand(path);
+//    mylist.BBsort("position");
     mylist.display();
 
     return 0;
